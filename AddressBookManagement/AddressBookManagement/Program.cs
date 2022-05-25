@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
-AddressBookManagement.Person person = new AddressBookManagement.Person();
+AddressBookManagement.ContactPerson person;
 AddressBookManagement.AddressBookDetails details = new AddressBookManagement.AddressBookDetails();
 Console.WriteLine("Enter a number to add that many contact details");
 int number = Convert.ToInt32(Console.ReadLine());
 for (int i = 0; i < number; i++)
 {
+    person = new AddressBookManagement.ContactPerson();
     Console.WriteLine("Enter the First Name of a Person");
     person.FirstName = Console.ReadLine();
     Console.WriteLine("Enter the Last Name of a Person");
@@ -23,3 +24,6 @@ for (int i = 0; i < number; i++)
     person.Email = Console.ReadLine();
     details.AddPersonContacts(person);
 }
+Console.WriteLine("Enter the name of a person to edit");
+string editContact = Console.ReadLine();
+details.EditContacts(editContact.ToLower());
