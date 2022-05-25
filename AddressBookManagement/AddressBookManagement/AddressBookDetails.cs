@@ -71,6 +71,7 @@ namespace AddressBookManagement
                 Console.WriteLine("Enter Y to edit any other details too...");
                 opt = Console.ReadLine();
             }
+               
                 Console.WriteLine("details of person are");
                 Console.WriteLine(editContact.FirstName);
                 Console.WriteLine(editContact.LastName);
@@ -80,6 +81,10 @@ namespace AddressBookManagement
                 Console.WriteLine(editContact.PostalCode);
                 Console.WriteLine(editContact.PhoneNo);
                 Console.WriteLine(editContact.Email);
+            }
+            else
+            {
+                Console.WriteLine("No Details Exist!");
             }
         }
 
@@ -95,6 +100,26 @@ namespace AddressBookManagement
                     persons.Remove(deleteContact);
                     Console.WriteLine("Contacts of {0} removed from book", contactName);
                 }
+            }
+            else
+            {
+                Console.WriteLine("No Details Exist!");
+            }
+        }
+        
+        public void DisplayDetails()
+        {
+            foreach (ContactPerson person in persons)
+            {
+                Console.WriteLine("Contact Details of - "+person.FirstName);
+                Console.WriteLine("Last Name          -"+person.LastName);
+                Console.WriteLine("Address            -" + person.Address);
+                Console.WriteLine("City               -" + person.City);
+                Console.WriteLine("State              -" + person.State);
+                Console.WriteLine("Zipcode            -" + person.PostalCode);
+                Console.WriteLine("Phone No           -" + person.PhoneNo);
+                Console.WriteLine("Email Id           -" + person.Email);
+                Console.WriteLine();
             }
         }
     }
