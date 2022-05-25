@@ -16,5 +16,6 @@ namespace AddressBookManagement
         public string PostalCode { get; set; }
         public string PhoneNo { get; set; }
         public string Email { get; set; }
+        public string Group { get; set; }
     }
 }

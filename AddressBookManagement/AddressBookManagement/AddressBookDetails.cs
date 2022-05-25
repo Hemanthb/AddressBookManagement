@@ -9,10 +9,19 @@ namespace AddressBookManagement
     public class AddressBookDetails
     {
         List<ContactPerson> persons = new List<ContactPerson>();
+        public Dictionary<string, List<ContactPerson>> GroupContacts = new Dictionary<string, List<ContactPerson>>();
 
         public void AddPersonContacts(ContactPerson person)
         {
             persons.Add(person);
+            if (GroupContacts.ContainsKey(person.Group)){
+                GroupContacts[person.Group].Add(person);
+            }
+            else
+            {
+                GroupContacts.Add(person.Group, new List<ContactPerson> {person});
+            }
+            
         }
 
         public void EditContacts(String name)

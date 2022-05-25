@@ -16,6 +16,8 @@ while (yes_no.ToLower() == "y")
             for (int i = 0; i < number; i++)
             {
                 person = new AddressBookManagement.ContactPerson();
+                Console.WriteLine("Enter the Group under which the Contact have to be saved-Family,Friends,Colleagues");
+                person.Group = Console.ReadLine();
                 Console.WriteLine("Enter the First Name of a Person");
                 person.FirstName = Console.ReadLine();
                 Console.WriteLine("Enter the Last Name of a Person");
@@ -54,3 +56,12 @@ while (yes_no.ToLower() == "y")
     yes_no = Console.ReadLine();
 }
 details.DisplayDetails();
+
+foreach (KeyValuePair<string, List<AddressBookManagement.ContactPerson>> keyValuePair in details.GroupContacts)
+{
+    Console.WriteLine($"{keyValuePair.Key}\n:---");
+    for(int i = 0; i < keyValuePair.Value.Count; i++)
+    {
+        Console.WriteLine(i + " --- " + keyValuePair.Value[i].FirstName);
+    }
+}
