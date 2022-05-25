@@ -82,5 +82,20 @@ namespace AddressBookManagement
                 Console.WriteLine(editContact.Email);
             }
         }
+
+        public void DeleteContact(string contactName)
+        {
+            ContactPerson deleteContact = persons.FirstOrDefault(x => x.FirstName.ToLower() == contactName);
+            if(deleteContact != null)
+            {
+                Console.WriteLine("Are you sure you want to remove this person from your address book? (Y/N)"+deleteContact.FirstName);
+                
+                if (Console.ReadKey().Key == ConsoleKey.Y)
+                {
+                    persons.Remove(deleteContact);
+                    Console.WriteLine("Contacts of {0} removed from book", contactName);
+                }
+            }
+        }
     }
 }

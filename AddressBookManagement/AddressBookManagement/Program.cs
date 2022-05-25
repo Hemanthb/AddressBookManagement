@@ -24,6 +24,10 @@ for (int i = 0; i < number; i++)
     person.Email = Console.ReadLine();
     details.AddPersonContacts(person);
 }
-Console.WriteLine("Enter the name of a person to edit");
+Console.WriteLine("Enter the name of a person to edit contact details");
 string editContact = Console.ReadLine();
 details.EditContacts(editContact.ToLower());
+
+Console.WriteLine("Enter the name of a person to delete contact");
+string deleteContact = Console.ReadLine();
+details.DeleteContact(deleteContact.ToLower());
